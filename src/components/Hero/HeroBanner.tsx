@@ -150,70 +150,96 @@ export default function HeroBanner() {
             className="mb-7 inline-flex items-center gap-2 rounded-full border border-violet-400/25 bg-violet-400/[0.08] px-4 py-2 text-xs font-semibold tracking-wide text-violet-200 sm:text-sm"
           >
             <Sparkles size={15} className="text-cyan-300" />
-            PRACTICAL LEARNING FOR STUDENTS
+            India’s First Industry-Structured Internship
           </motion.div>
 
           {/* Responsive hero heading */}
-          <motion.h1
-            id="hero-heading"
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="
-              mx-auto
-              w-full
-              text-center
-              text-[clamp(1.85rem,4.8vw,4.5rem)]
-              font-black
-              leading-[1.12]
-              tracking-[-0.04em]
-              sm:leading-[1.08]
-              lg:mx-0
-              lg:text-left
-              lg:text-[clamp(2.4rem,3.7vw,3.8rem)]
-            "
-          >
-            <span className="block">
-              <motion.span
-                className="
-                  inline-block
-                  bg-gradient-to-r
-                  from-cyan-300
-                  via-sky-300
-                  to-violet-400
-                  bg-clip-text
-                  text-transparent
-                "
-                animate={
-                  shouldReduceMotion
-                    ? {}
-                    : {
-                        backgroundPosition: [
-                          "0% 50%",
-                          "100% 50%",
-                          "0% 50%",
-                        ],
-                      }
-                }
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                style={{ backgroundSize: "200% 200%" }}
-              >
-                India’s
-              </motion.span>
-            </span>
+        <motion.h1
+  id="hero-heading"
+  initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, delay: 0.1 }}
+  className="
+    mx-auto
+    w-full
+    text-center
+    text-[clamp(1.85rem,4.8vw,4.5rem)]
+    font-black
+    leading-[1.12]
+    tracking-[-0.04em]
+    sm:leading-[1.08]
+    lg:mx-0
+    lg:text-left
+    lg:text-[clamp(2.4rem,3.7vw,3.8rem)]
+  "
+>
+  <span className="block">
+    <motion.span
+      className="
+        inline-block
+        bg-gradient-to-r
+        from-cyan-300
+        via-blue-400
+        via-violet-400
+        to-fuchsia-400
+        bg-clip-text
+        text-transparent
+      "
+      animate={
+        shouldReduceMotion
+          ? {}
+          : {
+              backgroundPosition: [
+                "0% 50%",
+                "100% 50%",
+                "0% 50%",
+              ],
+            }
+      }
+      transition={{
+        duration: 5,
+        repeat: Infinity,
+        ease: "linear",
+      }}
+      style={{
+        backgroundSize: "300% 300%",
+      }}
+    >
+      Beyond Learning.
+    </motion.span>
+  </span>
 
-            <span className="block whitespace-nowrap">
-              Industry-Structured
-            </span>
+  <span className="block whitespace-nowrap">
+    Industry-Ready
+  </span>
 
-            <span className="block whitespace-nowrap">
-              Internship Program
-            </span>
-          </motion.h1>
+  <span className="block whitespace-nowrap">
+    Internship Program
+  </span>
+</motion.h1>
+
+{/* Tagline */}
+<motion.p
+  initial={shouldReduceMotion ? false : { opacity: 0, y: 15 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, delay: 0.3 }}
+  className="
+    mt-5
+    text-center
+    text-base
+    font-semibold
+    tracking-wide
+    text-slate-300
+    sm:text-lg
+    lg:text-left
+    lg:text-xl
+  "
+>
+  Build Skills.
+  <span className="ml-2 bg-gradient-to-r from-cyan-300 to-violet-400 bg-clip-text text-transparent">
+    Shape Futures.
+  </span>
+</motion.p>
 
           <motion.p
             initial={shouldReduceMotion ? false : { opacity: 0, y: 15 }}

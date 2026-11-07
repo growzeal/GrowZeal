@@ -70,6 +70,23 @@ export default function Footer() {
             >
               Terms &amp; Conditions
             </Link>
+
+
+            <Link
+              href="/terms-and-conditions"
+              className="transition-colors hover:text-[#14B8A6]"
+            >
+              Privacy Policy
+            </Link>
+
+
+            <Link
+              href="/terms-and-conditions"
+              className="transition-colors hover:text-[#14B8A6]"
+            >
+              Refund & Cancellation Policy
+            </Link>
+
           </nav>
 
           {/* Copyright */}

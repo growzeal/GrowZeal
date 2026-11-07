@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, Check, Sparkles } from "lucide-react";
 
@@ -96,33 +97,22 @@ export default function Navbar() {
           className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 md:h-20 md:px-8 lg:px-10"
           aria-label="Main navigation"
         >
-          {/* GROWZEAL BRAND */}
+          {/* GROWZEAL BRAND LOGO */}
           <a
             href="/#home"
             onClick={closeMenu}
-            className="group relative flex shrink-0 items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+            className="group relative flex shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
             aria-label="GrowZeal home"
           >
-           
-           {/* GZ LOGO MARK */}
-<span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-cyan-300/20 bg-gradient-to-br from-cyan-300/[0.13] to-violet-400/[0.13] shadow-[0_0_22px_rgba(34,227,214,0.04)] transition duration-300 group-hover:border-cyan-300/40 group-hover:shadow-[0_0_24px_rgba(34,227,214,0.12)]">
-  <span className="absolute inset-0 bg-gradient-to-br from-cyan-300/[0.08] to-transparent" />
-
-  <span className="relative text-[15px] font-black tracking-[-0.12em] text-white">
-    G<span className="text-cyan-300">Z</span>
-  </span>
-</span>
-
-            {/* BRAND NAME */}
-            <span className="flex flex-col">
-              <span className="text-[21px] font-black leading-none tracking-[-0.055em] text-white sm:text-2xl">
-                Grow<span className="text-cyan-300">Zeal</span>
-              </span>
-
-              <span className="mt-1.5 text-[8px] font-bold uppercase tracking-[0.23em] text-slate-500 sm:text-[9px]">
-                Learn · Build · Grow
-              </span>
-            </span>
+            <Image
+              src="/growzeal-navbar-logo.png"
+              alt="GrowZeal"
+              width={1585}
+              height={524}
+              priority
+              sizes="(max-width: 640px) 135px, 155px"
+              className="h-9 w-auto object-contain transition duration-300 group-hover:scale-[1.02] sm:h-11"
+            />
           </a>
 
           {/* DESKTOP NAVIGATION */}
@@ -210,9 +200,14 @@ export default function Navbar() {
                   </p>
                 </div>
 
-                <span className="text-lg font-black tracking-tight text-white">
-                  Grow<span className="text-cyan-300">Zeal</span>
-                </span>
+                <Image
+                  src="/growzeal-navbar-logo.png"
+                  alt="GrowZeal"
+                  width={1585}
+                  height={524}
+                  sizes="120px"
+                  className="h-8 w-auto object-contain"
+                />
               </div>
 
               {/* MOBILE NAV LINKS */}

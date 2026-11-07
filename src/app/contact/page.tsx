@@ -37,8 +37,7 @@ const interestOptions = [
   "Other",
 ];
 
-// Email syntax validation + common email-domain typo protection.
-// This does not prove that a mailbox exists.
+// Email syntax validation and protection against common domain misspellings.
 function isValidEmail(email: string): boolean {
   const value = email.trim().toLowerCase();
 
@@ -95,7 +94,6 @@ function isValidEmail(email: string): boolean {
     return false;
   }
 
-  // Known common misspellings of popular providers.
   const blockedDomains = [
     "gml.com",
     "gmial.com",
@@ -116,38 +114,7 @@ function isValidEmail(email: string): boolean {
     "iclould.com",
   ];
 
-  if (blockedDomains.includes(domain)) {
-    return false;
-  }
-
-  // Popular providers. Other syntactically valid domains,
-  // including college and company domains, remain permitted.
-  const popularDomains = [
-    "gmail.com",
-    "googlemail.com",
-    "outlook.com",
-    "hotmail.com",
-    "live.com",
-    "msn.com",
-    "yahoo.com",
-    "yahoo.co.in",
-    "icloud.com",
-    "me.com",
-    "mac.com",
-    "proton.me",
-    "protonmail.com",
-    "aol.com",
-    "zoho.com",
-    "rediffmail.com",
-    "rediff.com",
-    "fastmail.com",
-  ];
-
-  if (popularDomains.includes(domain)) {
-    return true;
-  }
-
-  return true;
+  return !blockedDomains.includes(domain);
 }
 
 // Accept Indian mobile numbers with or without the +91 prefix.
@@ -237,7 +204,7 @@ export default function ContactPage() {
       mobile: normalizedMobile,
       college,
       branch: branch || null,
-      year_of_study: year || null,
+      year_of_study: year,
       area_of_interest: interest || null,
       remarks: remarks || null,
       status: "New",
@@ -327,29 +294,25 @@ export default function ContactPage() {
         <div className="absolute bottom-0 left-[40%] h-80 w-80 rounded-full bg-blue-500/[0.06] blur-[120px]" />
       </div>
 
-      {/* HEADER */}
+      {/* HEADER — UPDATED GROWZEAL NAVBAR */}
       <header className="relative z-20 border-b border-white/[0.08] bg-[#050B18]/85 backdrop-blur-2xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-10">
           <Link
             href="/#home"
             aria-label="GrowZeal home"
-            className="group flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+            className="flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
           >
-            <span className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-300/20 bg-gradient-to-br from-cyan-300/[0.12] to-violet-400/[0.12]">
-              <span className="text-[15px] font-black tracking-[-0.12em]">
-                T<span className="text-cyan-300">Q</span>
-              </span>
-              <span className="absolute bottom-1 right-1 h-1.5 w-1.5 rounded-full bg-cyan-300" />
-            </span>
+            <img
+              src="/growzeal-favicon.png"
+              alt="GrowZeal icon"
+              className="h-9 w-9 shrink-0 object-contain sm:h-10 sm:w-10"
+            />
 
-            <span>
-              <span className="block text-xl font-black tracking-[-0.05em]">
-                Grow<span className="text-cyan-300">Zeal</span>
-              </span>
-              <span className="mt-1 block text-[8px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                Learn · Build · Grow
-              </span>
-            </span>
+            <img
+              src="/growzeal-navbar-logo.png"
+              alt="GrowZeal"
+              className="h-8 w-auto object-contain sm:h-9 md:h-11"
+            />
           </Link>
 
           <Link
@@ -412,8 +375,11 @@ export default function ContactPage() {
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-cyan-300/15 bg-cyan-300/[0.07] text-cyan-300">
                     <Mail size={20} />
                   </span>
+
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm font-bold text-white">Email Support</p>
+                    <p className="text-sm font-bold text-white">
+                      Email Support
+                    </p>
                     <p className="mt-1 text-xs leading-5 text-slate-400 sm:text-sm">
                       Questions about registration or programs?
                     </p>
@@ -421,6 +387,7 @@ export default function ContactPage() {
                       GrowZeal.our@gmail.com
                     </p>
                   </div>
+
                   <ArrowUpRight
                     size={16}
                     className="mt-1 shrink-0 text-slate-600 transition group-hover:text-cyan-300"
@@ -431,8 +398,11 @@ export default function ContactPage() {
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-violet-300/15 bg-violet-300/[0.07] text-violet-300">
                     <GraduationCap size={21} />
                   </span>
+
                   <div className="flex-1">
-                    <p className="text-sm font-bold text-white">Program Guidance</p>
+                    <p className="text-sm font-bold text-white">
+                      Program Guidance
+                    </p>
                     <p className="mt-1 text-xs leading-5 text-slate-400 sm:text-sm">
                       Explore learning paths, projects, and program requirements.
                     </p>
@@ -443,8 +413,11 @@ export default function ContactPage() {
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-emerald-300/15 bg-emerald-300/[0.06] text-emerald-300">
                     <MessageCircle size={20} />
                   </span>
+
                   <div className="flex-1">
-                    <p className="text-sm font-bold text-white">Student Inquiries</p>
+                    <p className="text-sm font-bold text-white">
+                      Student Inquiries
+                    </p>
                     <p className="mt-1 text-xs leading-5 text-slate-400 sm:text-sm">
                       Share your interests and the information you need.
                     </p>
@@ -460,6 +433,7 @@ export default function ContactPage() {
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-cyan-300/15 bg-cyan-300/[0.07] text-cyan-300">
                     <MapPin size={20} />
                   </span>
+
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-bold text-white">Location</p>
                     <p className="mt-1 text-xs leading-5 text-slate-400 sm:text-sm">
@@ -469,6 +443,7 @@ export default function ContactPage() {
                       View on Google Maps
                     </p>
                   </div>
+
                   <ArrowUpRight
                     size={16}
                     className="mt-1 shrink-0 text-slate-600 transition group-hover:text-cyan-300"
@@ -501,13 +476,16 @@ export default function ContactPage() {
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-cyan-300/20 bg-gradient-to-br from-cyan-300/[0.12] to-violet-300/[0.08] text-cyan-300">
                       <Send size={21} />
                     </div>
+
                     <div>
                       <div className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-cyan-300">
                         Contact Form
                       </div>
+
                       <h2 className="mt-2 text-2xl font-black tracking-tight text-white sm:text-3xl">
                         Let&apos;s Get Started.
                       </h2>
+
                       <p className="mt-2 text-xs leading-6 text-slate-400 sm:text-sm">
                         Share a few details so we can understand your interests.
                       </p>
@@ -520,7 +498,10 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <form className="space-y-5 p-5 sm:p-8" onSubmit={handleSubmit}>
+                <form
+                  className="space-y-5 p-5 sm:p-8"
+                  onSubmit={handleSubmit}
+                >
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
                       <label htmlFor="name" className={labelClass}>
@@ -633,7 +614,9 @@ export default function ContactPage() {
                         disabled={isSubmitting}
                         className={`${inputClass} appearance-none`}
                       >
-                        <option value="" disabled>Select your year</option>
+                        <option value="" disabled>
+                          Select your year
+                        </option>
                         <option value="1st Year">1st Year</option>
                         <option value="2nd Year">2nd Year</option>
                         <option value="3rd Year">3rd Year</option>
@@ -655,9 +638,13 @@ export default function ContactPage() {
                       disabled={isSubmitting}
                       className={`${inputClass} appearance-none`}
                     >
-                      <option value="">Select your preferred area</option>
+                      <option value="">
+                        Select your preferred area
+                      </option>
                       {interestOptions.map((item) => (
-                        <option key={item} value={item}>{item}</option>
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
                       ))}
                     </select>
                   </div>
@@ -675,7 +662,9 @@ export default function ContactPage() {
                       placeholder="Tell us about your interests or questions..."
                       className={`${inputClass} resize-y`}
                     />
-                    <p className="mt-2 text-right text-[10px] text-slate-600">Optional</p>
+                    <p className="mt-2 text-right text-[10px] text-slate-600">
+                      Optional
+                    </p>
                   </div>
 
                   {submitError && (
@@ -712,18 +701,28 @@ export default function ContactPage() {
                     ) : (
                       <>
                         Submit Your Details
-                        <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" />
+                        <ArrowRight
+                          size={17}
+                          className="transition-transform duration-200 group-hover:translate-x-1"
+                        />
                       </>
                     )}
                   </button>
 
                   <p className="text-center text-[10px] leading-5 text-slate-500 sm:text-xs">
-                    By submitting this form, you agree to the applicable{" "}
+                    By submitting this form, you acknowledge our{" "}
                     <Link
                       href="/terms-and-conditions"
                       className="font-semibold text-cyan-300 underline decoration-cyan-300/30 underline-offset-4 transition hover:text-cyan-200"
                     >
                       Terms &amp; Conditions
+                    </Link>{" "}
+                    and{" "}
+                    <Link
+                      href="/privacy-policy"
+                      className="font-semibold text-cyan-300 underline decoration-cyan-300/30 underline-offset-4 transition hover:text-cyan-200"
+                    >
+                      Privacy Policy
                     </Link>
                     .
                   </p>
@@ -735,33 +734,63 @@ export default function ContactPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="relative z-10 border-t border-white/[0.07] bg-[#050B18]/90">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row sm:px-6 lg:px-10">
-          <Link href="/#home" className="text-lg font-black tracking-tight">
-            Grow<span className="text-cyan-300">Zeal</span>
-          </Link>
+      
+{/* FOOTER — MATCHING THE UPDATED GROWZEAL BRANDING */}
+<footer className="relative z-10 border-t border-white/[0.07] bg-[#050B18]/90">
+  <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-4 py-6 sm:flex-row sm:px-6 lg:px-10">
 
-          <p className="text-center text-[10px] text-slate-500 sm:text-xs">
-            © {new Date().getFullYear()} GrowZeal. All rights reserved.
-          </p>
+    {/* BRAND LOGO */}
+    <Link
+      href="/#home"
+      aria-label="GrowZeal home"
+      className="flex items-center gap-2.5"
+    >
+      <img
+        src="/growzeal-navbar-logo.png"
+        alt="GrowZeal"
+        className="h-7 w-auto object-contain"
+      />
+    </Link>
 
-          <div className="flex items-center gap-4">
-            <Link
-              href="/terms-and-conditions"
-              className="text-xs font-medium text-slate-400 transition hover:text-cyan-300"
-            >
-              Terms &amp; Conditions
-            </Link>
-            <Link
-              href="/#home"
-              aria-label="Return to home"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] text-slate-400 transition hover:border-cyan-300/20 hover:text-cyan-300"
-            >
-              <ArrowUpRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </footer>
+    {/* COPYRIGHT */}
+    <p className="text-center text-[10px] text-slate-500 sm:text-xs">
+      © {new Date().getFullYear()} GrowZeal. All rights reserved.
+    </p>
+
+    {/* POLICY LINKS */}
+    <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-3">
+      <Link
+        href="/terms-and-conditions"
+        className="text-xs font-medium text-slate-400 transition hover:text-cyan-300"
+      >
+        Terms &amp; Conditions
+      </Link>
+
+      <Link
+        href="/privacy-policy"
+        className="text-xs font-medium text-slate-400 transition hover:text-cyan-300"
+      >
+        Privacy Policy
+      </Link>
+
+      <Link
+        href="/refund-and-cancellation-policy"
+        className="text-xs font-medium text-slate-400 transition hover:text-cyan-300"
+      >
+        Refund Policy
+      </Link>
+
+      <Link
+        href="/#home"
+        aria-label="Return to home"
+        className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] text-slate-400 transition hover:border-cyan-300/20 hover:text-cyan-300"
+      >
+        <ArrowUpRight size={16} />
+      </Link>
+    </div>
+  </div>
+</footer>
+
     </main>
   );
 }

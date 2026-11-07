@@ -21,7 +21,7 @@ const navLinks = [
   {
     label: "Why GrowZeal",
     href: "#why-growzeal",
-    section: "why-GrowZeal",
+    section: "why-growzeal",
   },
   { label: "Contact", href: "/contact", section: "" },
 ];
@@ -87,6 +87,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 text-white">
+
         {/* NAVBAR BACKGROUND */}
         <div className="absolute inset-0 border-b border-white/[0.08] bg-[#050B18]/90 shadow-lg shadow-black/10 backdrop-blur-2xl" />
 
@@ -97,13 +98,25 @@ export default function Navbar() {
           className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 md:h-20 md:px-8 lg:px-10"
           aria-label="Main navigation"
         >
+
           {/* GROWZEAL BRAND LOGO */}
           <a
             href="/#home"
             onClick={closeMenu}
-            className="group relative flex shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+            className="group relative flex shrink-0 items-center gap-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
             aria-label="GrowZeal home"
           >
+            {/* SEPARATE G FAVICON */}
+            <Image
+              src="/growzeal-favicon.png"
+              alt=""
+              width={64}
+              height={64}
+              priority
+              className="h-9 w-9 shrink-0 object-contain transition duration-300 group-hover:scale-105 sm:h-10 sm:w-10"
+            />
+
+            {/* HORIZONTAL GROWZEAL LOGO */}
             <Image
               src="/growzeal-navbar-logo.png"
               alt="GrowZeal"
@@ -152,7 +165,9 @@ export default function Navbar() {
               size={15}
               className="transition-transform duration-300 group-hover:rotate-12"
             />
+
             Explore Programs
+
             <ArrowUpRight
               size={16}
               className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -188,6 +203,7 @@ export default function Navbar() {
         >
           <div className="min-h-0 overflow-hidden">
             <div className="border-t border-white/[0.07] bg-[#050B18]/[0.98] px-4 pb-5 pt-4 shadow-2xl shadow-black/30 backdrop-blur-2xl sm:px-6">
+
               {/* MOBILE MENU BRAND */}
               <div className="mb-4 flex items-center justify-between px-1">
                 <div>
@@ -200,14 +216,25 @@ export default function Navbar() {
                   </p>
                 </div>
 
-                <Image
-                  src="/growzeal-navbar-logo.png"
-                  alt="GrowZeal"
-                  width={1585}
-                  height={524}
-                  sizes="120px"
-                  className="h-8 w-auto object-contain"
-                />
+                {/* MOBILE GROWZEAL LOGO */}
+                <div className="flex items-center gap-1.5">
+                  <Image
+                    src="/growzeal-favicon.png"
+                    alt=""
+                    width={64}
+                    height={64}
+                    className="h-8 w-8 shrink-0 object-contain"
+                  />
+
+                  <Image
+                    src="/growzeal-navbar-logo.png"
+                    alt="GrowZeal"
+                    width={1585}
+                    height={524}
+                    sizes="120px"
+                    className="h-8 w-auto object-contain"
+                  />
+                </div>
               </div>
 
               {/* MOBILE NAV LINKS */}
@@ -263,7 +290,9 @@ export default function Navbar() {
                 className="group mt-4 flex min-h-[50px] items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-300 to-[#91A7FF] px-5 py-3 text-sm font-extrabold text-[#050B18] shadow-[0_5px_24px_rgba(34,227,214,0.08)] transition duration-300 hover:shadow-[0_5px_28px_rgba(34,227,214,0.17)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200 active:scale-[0.99]"
               >
                 <Sparkles size={16} />
+
                 Explore Programs
+
                 <ArrowUpRight
                   size={17}
                   className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
